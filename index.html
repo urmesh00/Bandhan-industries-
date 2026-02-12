@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureLoad Solutions | Dunnage Bags & Cord Strapping</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #0f172a; /* Deep Navy */
+            --secondary: #f97316; /* Safety Orange */
+            --light: #f1f5f9;
+            --dark: #334155;
+            --white: #ffffff;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--secondary); }
+
+        .cta-button {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover { background-color: #e65d00; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            color: #cbd5e1;
+        }
+
+        /* --- PRODUCTS SECTION --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .products {
+            padding: 4rem 5%;
+            background-color: var(--light);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover { transform: translateY(-5px); }
+
+        .card-img-placeholder {
+            height: 200px;
+            background-color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .card-content { padding: 1.5rem; }
+
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .card-content ul {
+            margin-top: 1rem;
+            list-style: disc;
+            padding-left: 1.2rem;
+            color: #475569;
+        }
+
+        /* --- ABOUT/WHY US --- */
+        .features {
+            padding: 4rem 5%;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            padding: 4rem 5%;
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-info, .contact-form { flex: 1; min-width: 300px; }
+
+        .contact-info h2 { color: var(--secondary); margin-bottom: 1rem; }
+        
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #020617;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- MOBILE NAV --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; } /* Simplified for this demo */
+            .logo { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SecureLoad Solutions</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact" class="cta-button">Get Quote</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Protect Your Cargo with Premium Dunnage & Strapping</h1>
+        <p>Industrial-grade load securement solutions for road, rail, and sea transport.</p>
+        <a href="#products" class="cta-button" style="display:inline-block; margin-top:1rem;">View Products</a>
+    </section>
+
+    <section id="products" class="products">
+        <h2 class="section-title">Our Solutions</h2>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-img-placeholder" style="background: #e2e8f0;">
+                    [Image: PP Woven Air Bag]
+                </div>
+                <div class="card-content">
+                    <h3>PP Woven Dunnage Bags</h3>
+                    <p>Heavy-duty woven polypropylene bags designed for extreme durability and resistance against punctures.</p>
+                    <ul>
+                        <li>Re-usable & Recyclable</li>
+                        <li>High moisture resistance</li>
+                        <li>Ideal for heavy industrial loads</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img-placeholder" style="background: #cbd5e1;">
+                   [Image: Kraft Paper Air Bag]
+                </div>
+                <div class="card-content">
+                    <h3>Kraft Paper Dunnage Bags</h3>
+                    <p>Cost-effective void fillers featuring a rigid structure to easily slide into narrow gaps.</p>
+                    <ul>
+                        <li>Available in various ply levels</li>
+                        <li>AAR Verified</li>
+                        <li>Eco-friendly materials</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-img-placeholder" style="background: #94a3b8;">
+                    [Image: Composite Cord Strap]
+                </div>
+                <div class="card-content">
+                    <h3>Composite Cord Strapping</h3>
+                    <p>The synthetic alternative to steel strapping. Safe to handle, shock absorbent, and will not rust.</p>
+                    <ul>
+                        <li>High system strength</li>
+                        <li>Retensionable</li>
+                        <li>No sharp edges (User Safe)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="features">
+        <h2 class="section-title">Why Choose SecureLoad?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>Impact Resistant</h3>
+                <p>Our bags absorb impact energy during transit, ensuring your goods arrive without damage.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Certified Quality</h3>
+                <p>Manufacturing adheres to ISO standards and AAR regulations for rail and sea transport.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Cost Efficient</h3>
+                <p>Reduce damage claims and load times with our easy-to-use inflation and strapping systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-title" style="color:white; margin-bottom: 1rem;">Contact Us</div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get a Custom Quote</h2>
+                <p>Need advice on the right bag size or strap strength? Contact our technical team today.</p>
+                <br>
+                <p><strong>Email:</strong> bandhanindustries9@gmail.com</p>
+                <p><strong>Phone:</strong> +91 8793380239</p>
+                <p><strong>Location:</strong> Trapur industrial area boisar Dist palghar Maharashtra</p>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="email address" required>
+                    <input type="text" placeholder="Company Name">
+                    <textarea rows="5" placeholder="Tell us about your cargo needs..." required></textarea>
+                    <button type="submit">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SecureLoad Solutions. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
